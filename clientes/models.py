@@ -12,12 +12,13 @@ class Cliente(models.Model):
     nome = CharField(max_length=15)
     sobre_nome = CharField(max_length=20)
     dt_nasc = DateField(null=False)
-    cpf = IntegerField(max_length=11,primary_key=True)
+    cpf = IntegerField(primary_key=True)
     email = CharField(max_length=50)
     sexo = CharField(max_length=1,choices=sexo_choice)
     dt_cadastro = DateTimeField(auto_now_add=True)
-    dt_alteracao = DateTimeField()
+    dt_alteracao = DateTimeField(null=True)
     sn_ativo = BooleanField(null=False, default=True)
+
     def __str__(self):
         return self.nome +' ' +self.sobre_nome
 

@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clientes.views import home, list
+from clientes.views import home, list,create,update,delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',home),
-    path('lista',list)
+    path('lista',list,name='lista'),
+    path('cadastro',create,name='create'),
+    path ('update/<int:pk>', update, name='update'),
+    path('delete/<int:pk>',delete, name='delete')
 ]
